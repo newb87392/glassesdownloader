@@ -1,0 +1,12 @@
+{
+  "result": 0,
+  "info": [
+    {"folder": "100HUNTI", "files": [
+      {"name": "100_0001.JPG", "size": 900000, "createtimestr": "20260101010101", "type": 1},
+      {"name": "100_0002.MP4", "size": 2400000, "createtimestr": "20260101010202", "type": 2}
+    ], "count": 2},
+    {"folder": "AAC", "files": [
+      {"name": "V0001.WAV", "size": 120000, "createtimestr": "20260101010303", "type": 3}
+    ], "count": 1}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "result": 0,
+  "info": [
+    {"folder": "EVENT", "files": [
+      {"name": "EVENT/20260101010101000.jpg", "size": 422, "createtimestr": "20260101010101", "type": 1}
+    ], "count": 1},
+    {"folder": "AAC", "files": [], "count": 0},
+    {"folder": "LOOP", "files": [
+      {"name": "LOOP/20260101010202000.mp4", "size": 149932, "createtimestr": "20260101010202", "type": 2}
+    ], "count": 1},
+    {"folder": "EMR", "files": [], "count": 0}
+  ]
+}

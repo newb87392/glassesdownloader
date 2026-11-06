@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Glasses Downloader — Manual / Extra Settings mockup</title>
+<style>
+  :root{
+    --bg:#111820; --panel:#17242b; --log:#0c151a; --accent:#69dacb; --secondary:#aebbc8;
+    --warnfg:#ffd7a6; --warnbg:#442f24; --btn2:#2b3948; --line:#243440;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:28px 24px 40px;background:#0a0f14;color:#e8eef4;
+       font-family:Roboto,"Helvetica Neue",Arial,sans-serif}
+  h1{font-size:16px;margin:0 0 4px;font-weight:600;letter-spacing:.02em}
+  .sub{color:#7f8f9e;font-size:12.5px;margin-bottom:22px}
+  .frames{display:flex;gap:34px;align-items:flex-start;flex-wrap:wrap}
+  .frame{width:392px}
+  .cap{font-size:11px;letter-spacing:.14em;color:#7f8f9e;margin:0 0 8px 6px;text-transform:uppercase}
+  .phone{background:var(--bg);border:1px solid #223038;border-radius:22px;padding:10px 12px 14px;
+         box-shadow:0 18px 40px rgba(0,0,0,.45)}
+  /* monitor / log panel */
+  .monitor{background:var(--panel);border-radius:8px;padding:10px 12px 9px;height:236px;display:flex;flex-direction:column}
+  .brand{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.04em;margin-bottom:4px}
+  .stateline{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+  .status{font-size:14px;font-weight:700;color:#fff}
+  .spin{width:14px;height:14px;border:2px solid #2f4a52;border-top-color:var(--accent);border-radius:50%;opacity:.55}
+  .log{background:var(--log);border-radius:6px;padding:8px;font-size:11.5px;line-height:1.5;color:var(--secondary);
+       overflow:hidden;flex:1}
+  .log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .log .ok{color:#8fe3c6}
+  .log .warn{color:#ffd7a6}
+  /* action row */
+  .actions{display:flex;gap:7px;margin:10px 0 12px}
+  .btn{border:0;border-radius:7px;padding:11px 10px;font-size:13px;font-weight:600;color:#fff;background:var(--btn2);
+       font-family:inherit;text-align:center}
+  .btn.primary{background:var(--accent);color:#121d23}
+  .btn:disabled{opacity:.45}
+  .btn.grow2{flex:2}.btn.grow1{flex:1}
+  .section{font-size:10.5px;font-weight:700;color:var(--accent);letter-spacing:.08em;margin:0 0 5px}
+  .row{display:flex;align-items:center;gap:8px;margin-bottom:11px}
+  .row .dev{flex:1;font-size:12.5px;color:var(--secondary)}
+  .row .btn{width:132px;padding:10px 6px;font-size:11.5px}
+  .body{font-size:12.5px;color:var(--secondary);margin:0 0 6px;line-height:1.45}
+  .radio{display:flex;align-items:center;gap:9px;font-size:13px;color:#fff;min-height:34px}
+  .dot{width:16px;height:16px;border-radius:50%;border:2px solid #56697a;flex:0 0 auto}
+  .dot.on{border-color:var(--accent);box-shadow:inset 0 0 0 3.5px var(--bg),inset 0 0 0 9px var(--accent)}
+  .warnbox{background:var(--warnbg);color:var(--warnfg);font-size:11.5px;font-weight:700;line-height:1.4;
+           border-radius:6px;padding:9px 10px;margin:8px 0}
+  .wide{width:100%;margin-bottom:12px}
+  /* tabs */
+  .tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin:4px 0 12px}
+  .tab{flex:1;text-align:center;padding:11px 6px;font-size:13px;font-weight:600;color:#8b9aa8;
+       border-bottom:2px solid transparent;letter-spacing:.02em}
+  .tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+  .pane{min-height:268px}
+  .field{background:#1b2830;border:1px solid #2a3b46;border-radius:6px;padding:11px 10px;font-size:12px;
+         color:#6f8291;margin-bottom:8px}
+  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:2px 0 8px}
+  .chip{border:1px solid #33454f;background:#1b2830;color:#cfe0ea;border-radius:999px;padding:7px 0;font-size:12px;font-weight:600;text-align:center}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#121d23}
+  .kv{display:flex;justify-content:space-between;font-size:11.5px;color:#8b9aa8;margin:0 0 4px}
+  .kv b{color:#dfeaf2;font-weight:600}
+  .divider{height:1px;background:var(--line);margin:12px 0}
+  .note{font-size:11.5px;color:#8b9aa8;line-height:1.45;margin:6px 0 8px}
+  .badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;color:#121d23;background:var(--accent);
+         border-radius:4px;padding:2px 5px;margin-left:5px;vertical-align:2px}
+  .badge.grey{background:#43555f;color:#d5e2ea}
+  .foot{margin-top:26px;color:#7f8f9e;font-size:12px;max-width:900px;line-height:1.6}
+  code{font-family:ui-monospace,Menlo,monospace;color:#b9ccd8}
+</style>
+</head>
+<body>
+<h1>Glasses Downloader — tabs under the action row</h1>
+<div class="sub">Mockup only, not wired up yet. Shared blocks (device, destination, log) stay put; the two panes hold the manual Wi-Fi flow and the device settings.</div>
+
+<div class="frames">
+
+  <!-- ============ FRAME A: MANUAL TAB ============ -->
+  <div class="frame">
+    <div class="cap">A · Manual tab</div>
+    <div class="phone">
+      <div class="monitor">
+        <div class="brand">GLASSES DOWNLOADER · BLE + WI-FI</div>
+        <div class="stateline"><div class="status">Ready</div><div class="spin"></div></div>
+        <div class="log">
+          <div>No access to your existing photos or videos is requested.</div>
+          <div>Nothing is removed from the glasses.</div>
+          <div class="ok">Wi-Fi advertised as Glasses-EXAMPLE1</div>
+          <div class="ok">Connected to glasses AP</div>
+          <div class="ok">3 new files listed · 20261023080144683.mp4 94.7 MB</div>
+          <div class="ok">Saved 20261023080144683.mp4 (179.9 s)</div>
+          <div class="warn">2K style write was not acknowledged.</div>
+          <div>Idle. Nothing pending.</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary grow2">Connect &amp; download</button>
+        <button class="btn grow1">Cancel / disconnect</button>
+      </div>
+
+      <div class="section">DEVICE</div>
+      <div class="row">
+        <div class="dev">SPECTRA · not connected</div>
+        <button class="btn">Choose Bluetooth device</button>
+      </div>
+
+      <div class="section">WHERE TO SAVE FILES</div>
+      <div class="body">Neither option needs permission to read your personal photos.</div>
+      <div class="radio"><span class="dot on"></span>Private app gallery (recommended)</div>
+      <div class="radio"><span class="dot"></span>Android gallery (Android 10+)</div>
+      <div class="warnbox">Uninstalling this app or clearing its data deletes downloads in the private gallery. Export files you want to keep first.</div>
+      <button class="btn wide">Open private gallery</button>
+
+      <div class="tabs">
+        <div class="tab active">Manual</div>
+        <div class="tab">Extra Settings</div>
+      </div>
+
+      <div class="pane">
+        <div class="section">WI-FI FALLBACK</div>
+        <div class="body">Already connected to the glasses' Wi-Fi? Download directly; no Bluetooth needed.</div>
+        <div class="field">Glasses-EXAMPLE1 &nbsp;<span style="color:#4d6270">(reported via BLE)</span></div>
+        <button class="btn wide">Download using current Wi-Fi</button>
+
+        <div class="divider"></div>
+
+        <div class="section">ADVANCED CONNECTION</div>
+        <div class="field">Scan filter (optional) — name or prefix</div>
+        <div class="radio"><span class="dot"></span>Try alternate Wi-Fi mode (P2P / 0x31)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FRAME B: EXTRA SETTINGS TAB ============ -->
+  <div class="frame">
+    <div class="cap">B · Extra Settings tab</div>
+    <div class="phone">
+      <div class="monitor">
+        <div class="brand">GLASSES DOWNLOADER · BLE + WI-FI</div>
+        <div class="stateline"><div class="status">Connected · reading settings</div><div class="spin"></div></div>
+        <div class="log">
+          <div>Connected to SPECTRA (BLE)</div>
+          <div class="ok">Device status: battery 82% · recording idle</div>
+          <div class="ok">Video length read: 180 s (3 min)</div>
+          <div class="warn">Video length set to 900 s — waiting for ack…</div>
+          <div class="ok">Acknowledged by glasses: 900 s (15 min)</div>
+          <div>Next clip will roll over at 15:00; nothing was recorded.</div>
+          <div class="warn">2K style command written. Record a fresh clip to verify.</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary grow2">Connect &amp; download</button>
+        <button class="btn grow1">Cancel / disconnect</button>
+      </div>
+
+      <div class="section">DEVICE</div>
+      <div class="row">
+        <div class="dev">SPECTRA · AA:BB:CC:DD:EE:FF</div>
+        <button class="btn">Choose Bluetooth device</button>
+      </div>
+
+      <div class="section">WHERE TO SAVE FILES</div>
+      <div class="body">Neither option needs permission to read your personal photos.</div>
+      <div class="radio"><span class="dot on"></span>Private app gallery (recommended)</div>
+      <div class="radio"><span class="dot"></span>Android gallery (Android 10+)</div>
+      <div class="warnbox">Uninstalling this app or clearing its data deletes downloads in the private gallery. Export files you want to keep first.</div>
+      <button class="btn wide">Open private gallery</button>
+
+      <div class="tabs">
+        <div class="tab">Manual</div>
+        <div class="tab active">Extra Settings</div>
+      </div>
+
+      <div class="pane">
+        <div class="section">VIDEO LENGTH <span class="badge">NEW</span></div>
+        <div class="kv"><span>Current on glasses</span><b>3 min (180 s)</b></div>
+        <div class="chips">
+          <span class="chip">1 min</span>
+          <span class="chip on">3 min</span>
+          <span class="chip">5 min</span>
+          <span class="chip">7 min</span>
+          <span class="chip">10 min</span>
+          <span class="chip">15 min</span>
+        </div>
+        <div class="note">Each clip stops at this length and the next one starts a new file. Max the firmware offers is 15 min; it does not record or delete anything.</div>
+        <div class="actions" style="margin:0 0 4px">
+          <button class="btn grow1">Read from glasses</button>
+          <button class="btn primary grow1">Apply to glasses</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">EXPERIMENTAL VIDEO MODE</div>
+        <div class="note">Vendor BLE labels say 2K / 16:9, but support on this CT01 is unverified. This button only changes a setting; it does not record or delete files.</div>
+        <button class="btn wide">Try 2K / 16:9 video mode (experimental)</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <b>What moves where:</b> the action row, device picker, destination radios/warning and private-gallery button stay above the tabs because the Bluetooth flow needs them too.
+  <b>Manual</b> = the existing Wi-Fi fallback (SSID + “Download using current Wi-Fi”) plus advanced connection (scan filter, alternate P2P mode).
+  <b>Extra Settings</b> = new video-length control (BLE <code>cmd 2</code>, seconds as 2-byte big-endian), the existing 2K / 16:9 experimental button.
+  Tab state persists while the log keeps autoscrolling at the top.
+</div>
+</body>
+</html>

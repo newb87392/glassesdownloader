@@ -1,0 +1,34 @@
+# Generated Android/Gradle files
+.gradle/
+.kotlin/
+**/build/
+local.properties
+.idea/
+*.iml
+__pycache__/
+*.pyc
+
+# Local signing material and credentials
+*.keystore
+*.jks
+*.pem
+*.key
+.env
+.env.*
+
+# Downloaded media and phone-test measurements (kept on disk, not in Git)
+downloads/
+measurements/
+
+# OS/editor temporary files
+.DS_Store
+*.swp
+*~
+
+# Built artifacts and local release shelf
+releases/
+*.apk
+*.aab
+
+# Editor/IDE state
+.vscode/

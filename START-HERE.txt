@@ -1,0 +1,35 @@
+GLASSES DOWNLOADER — BUILD AND INSTALL
+======================================
+
+You do not need Git, a GitHub account, or any hosted build. Everything compiles
+on your own machine, and the Gradle wrapper JAR is included, so there is no
+bootstrap step.
+
+WINDOWS (Android Studio)
+1. Install Android Studio: https://developer.android.com/studio
+2. Android Studio > Open > choose this GlassesDownloader folder.
+3. Wait for Gradle Sync; install Android SDK Platform 35 if prompted, and pick a
+   JDK 17 under Settings > Build, Execution, Deployment > Build Tools > Gradle.
+4. Phone: Settings > About phone > Software information > Build number (tap 7
+   times) > Settings > Developer options > USB debugging ON.
+5. Plug the phone in with a USB data cable, approve the debugging prompt, select
+   it in Android Studio and press Run (green triangle).
+6. For a standalone APK: Build > Build APK(s). Output:
+   app\build\outputs\apk\debug\app-debug.apk
+
+LINUX / MACOS (command line, or Android Studio)
+1. Install a JDK 17 and the Android command-line SDK (platform 35 + build-tools).
+2. export JAVA_HOME=/path/to/jdk-17
+   export ANDROID_HOME=/path/to/android-sdk
+3. ./gradlew :app:assembleDebug
+4. Install with: adb install -r app/build/outputs/apk/debug/app-debug.apk
+
+Tests:  ./gradlew :app:testDebugUnitTest
+
+Optional: Setup-Gradle.cmd (Windows) or ./setup-gradle.sh (Linux, macOS) only
+repairs a missing or damaged wrapper. You do not need them for a normal build.
+
+STATUS: builds with JDK 17 + Android SDK 35, 174 JVM tests pass, and it runs on
+Android 8.0 (API 26) and newer; shared-gallery export needs Android 10+.
+
+For protocol details, device behaviour and privacy notes see README.md.
