@@ -114,7 +114,7 @@ tools/                                          helper scripts for device diagno
 
 ## Known limitations
 
-- Tested against one CT01-family unit. Other rebrands of this hardware may answer only the legacy CGI
+- Tested against one CT01-family unit, the IONCT with UPC 787603324169 (ASIN B0HFMB2MGN). Other rebrands of this hardware may answer only the legacy CGI
   dialect, or use a different BLE service.
 - The glasses stop answering BLE once they sleep; wake them before connecting.
 - The firmware does not report storage capacity (it answers `unsupport.`), so the app shows used space only.
