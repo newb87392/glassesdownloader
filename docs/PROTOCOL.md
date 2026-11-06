@@ -130,9 +130,30 @@ Files live at `/DCIM/100HUNTI/<name>`; RTSP is on port 554 and is not used here.
 - **Live view.** RTSP exists on the device but is out of scope.
 - **Remote record trigger.** `/app/enterrecorder` and `param=rec` exist; this app does not call them.
 
-## 5. How this was derived
+## 5. Prior art, and where this differs
+
+An independent write-up for the same hardware family exists: sctg-development's
+[Eyevue E09 BLE protocol reference](https://github.com/sctg-development/ai-smart-glasses-e09/blob/main/REVERSE_ENGINEERING_EYEVUE_BLE_PROTOCOL.md),
+with a MIT-licensed Swift implementation in
+[ai-smart-glasses-e09-reverse](https://github.com/sctg-development/ai-smart-glasses-e09-reverse). It is the
+baseline this document was checked against — service UUIDs, framing, `0x39`, `0x25`, the passphrase and the
+`/app/getfilelist` shape all agree.
+
+Three places where this unit differs, all confirmed on hardware:
+
+| Topic | E09 reference | This unit |
+| --- | --- | --- |
+| Deleting media | BLE `0x44` FILE_DOWNLOAD_FINISH with `value2 = 0x00` (CLEAR) after a fully successful transfer | `GET /app/deletefile?file=<FOLDER>/<name>` over the access point; selectively or all at once, independent of any transfer |
+| Storage capacity | `0x16` answers with a 2-byte big-endian value ("unit unconfirmed") | No reply to `0x16`, and `/app/getstorageinfo` returns `unsupport.` |
+| Media folders | `EVENT` (photos) and `AAC` (memos); a video folder was suspected but not captured | `EVENT`, `AAC`, `LOOP` (video) and `EMR` all present and enumerated |
+
+Treat the tables above as the current state of knowledge for this firmware; where the two disagree, the
+device wins.
+
+## 6. How this was derived
 
 By observing one unit: the companion app's own traffic, the BLE frames it writes, the HTTP requests it
 makes to the glasses (which are on the glasses' own network, not the vendor's cloud), and by testing
 writes against the hardware — for example setting a clip length and then checking the length of the next
-recording. Where the firmware disagreed with the vendor app, the firmware won and this document says so.
+recording. Every finding was also checked against the published E09 reference in §5 — and where that,
+the vendor app and the device disagreed, the device won and this document says so.
