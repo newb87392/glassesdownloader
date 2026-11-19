@@ -1,7 +1,7 @@
 # Glasses Downloader
 
 An Android app that pulls photos, videos and audio off a CT01-class smart-glasses camera
-("Star Glasses" and similar white-label hardware) **without the vendor's phone app and without
+("Star Glasses", "IONCT", and similar white-label hardware) **without the vendor's phone app and without
 any cloud account**. It talks to the glasses directly: Bluetooth LE to wake their Wi-Fi access
 point, then plain HTTP on their own network to list, download, verify and delete files.
 
